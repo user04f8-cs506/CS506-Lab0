@@ -1,5 +1,3 @@
-## Please fill in all the parts labeled as ### YOUR CODE HERE
-
 import numpy as np
 
 def dot_product(v1: np.ndarray, v2: np.ndarray):
@@ -41,6 +39,6 @@ def nearest_neighbor(target_vector: np.ndarray, vectors: np.ndarray):
     # best_similarity = best_idx = -1
     # for i, vector in enumerate(vectors): # we COULD do this but this is super inefficient!!
     #     ... 
-    return np.argmin( # gets the idx of the lowest cosine_similarity
-        cosine_similarity(target_vector, vector) for vector in vectors
+    return np.argmax( # gets the idx of the lowest cosine_similarity
+        [cosine_similarity(target_vector, vector) for vector in vectors]
     )

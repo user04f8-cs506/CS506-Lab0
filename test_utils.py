@@ -1,5 +1,3 @@
-## Please fill in all the parts labeled as ### YOUR CODE HERE
-
 import numpy as np
 import pytest
 from utils import *
