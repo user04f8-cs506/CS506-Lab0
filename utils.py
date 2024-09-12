@@ -2,15 +2,15 @@
 
 import numpy as np
 
-def dot_product(v1, v2):
+def dot_product(v1: np.ndarray, v2: np.ndarray):
     '''
     v1 and v2 are vectors of same shape.
     return the scalar dor product of the two vectors.
     # Hint: use `np.dot`.
     '''
-    ### YOUR CODE HERE
+    return np.dot(v1, v2)
     
-def cosine_similarity(v1, v2):
+def cosine_similarity(v1: np.ndarray, v2: np.ndarray):
     '''
     v1 and v2 are vectors of same shape.
     Return the cosine similarity between the two vectors.
@@ -26,9 +26,9 @@ def cosine_similarity(v1, v2):
     
     # Hint: Use `dot_product` and `np.linalg.norm`.
     '''
-    ### YOUR CODE HERE
+    return dot_product(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
     
-def nearest_neighbor(target_vector, vectors):
+def nearest_neighbor(target_vector: np.ndarray, vectors: np.ndarray):
     '''
     target_vector is a vector of shape d.
     vectors is a matrix of shape N x d.
@@ -38,4 +38,9 @@ def nearest_neighbor(target_vector, vectors):
     # Hint: You should use the cosine_similarity function that you already wrote.
     # Hint: For this lab, you can just use a for loop to iterate through vectors.
     '''
-    ### YOUR CODE HERE
+    # best_similarity = best_idx = -1
+    # for i, vector in enumerate(vectors): # we COULD do this but this is super inefficient!!
+    #     ... 
+    return np.argmin( # gets the idx of the lowest cosine_similarity
+        cosine_similarity(target_vector, vector) for vector in vectors
+    )
